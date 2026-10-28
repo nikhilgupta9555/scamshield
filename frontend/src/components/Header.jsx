@@ -1,7 +1,7 @@
 import React from 'react';
-import { Shield, ShieldAlert, PhoneCall, Globe2, Sparkles } from 'lucide-react';
+import { Shield, ShieldAlert, PhoneCall, Globe2, Sparkles, Video } from 'lucide-react';
 
-export default function Header({ language, setLanguage, onOpenPitchTour, onOpenFamilyModal }) {
+export default function Header({ language, setLanguage, onOpenPitchTour, onOpenFamilyModal, onOpenVideoModal }) {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-[#090d16]/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
@@ -40,6 +40,16 @@ export default function Header({ language, setLanguage, onOpenPitchTour, onOpenF
         {/* Right actions */}
         <div className="flex items-center space-x-2 sm:space-x-3">
           
+          {/* Watch Demo Video Button */}
+          <button
+            onClick={onOpenVideoModal}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-gradient-to-r from-rose-600/30 to-purple-600/30 text-rose-300 border border-rose-500/50 hover:from-rose-600 hover:to-purple-600 hover:text-white transition-all shadow-sm animate-pulse"
+            title="Watch 2-Minute Prototype Demo Video"
+          >
+            <Video className="w-3.5 h-3.5 text-rose-400" />
+            <span>{language === 'hi' ? 'डेमो वीडियो' : 'Watch Demo Video (2m)'}</span>
+          </button>
+
           {/* Pitch & Walkthrough button */}
           <button
             onClick={onOpenPitchTour}

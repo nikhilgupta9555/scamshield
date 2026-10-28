@@ -9,6 +9,7 @@ import ResultsCard from './components/ResultsCard';
 import FamilyAlertModal from './components/FamilyAlertModal';
 import ScamFeedTicker from './components/ScamFeedTicker';
 import PitchWalkthroughModal from './components/PitchWalkthroughModal';
+import DemoVideoModal from './components/DemoVideoModal';
 import Footer from './components/Footer';
 
 import { analyzeScam, SAMPLE_PRESETS } from './services/scamEngine';
@@ -25,6 +26,7 @@ export default function App() {
   // Modals
   const [isFamilyModalOpen, setIsFamilyModalOpen] = useState(false);
   const [isPitchTourOpen, setIsPitchTourOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   // Load first sample on initial render for an impressive immediate display
   useEffect(() => {
@@ -98,6 +100,7 @@ export default function App() {
         setLanguage={setLanguage}
         onOpenPitchTour={() => setIsPitchTourOpen(true)}
         onOpenFamilyModal={() => setIsFamilyModalOpen(true)}
+        onOpenVideoModal={() => setIsVideoModalOpen(true)}
       />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
@@ -253,6 +256,11 @@ export default function App() {
         isOpen={isPitchTourOpen}
         onClose={() => setIsPitchTourOpen(false)}
         language={language}
+      />
+
+      <DemoVideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
       />
 
     </div>
